@@ -13,11 +13,9 @@ const Show = (props) => {
 
   const [ isEditing, setIsEditing ] = useState(false)
 
-  useEffect( () => {
-    if (person) {
-        setEditForm(person)
-    }
-  }, [person])
+  useEffect(() => {
+    getPeople();
+  }, []);
 
   // handling form data change
   const handleChange = (e) => {
