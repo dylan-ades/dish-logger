@@ -24,6 +24,7 @@ const Main = (props) => {
             },
             body: JSON.stringify(person)
         })
+        getPeople()
     }
 
    const updatePeople = async (person, id) => {
