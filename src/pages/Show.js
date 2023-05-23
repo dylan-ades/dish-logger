@@ -5,19 +5,19 @@ import { useState, useEffect } from 'react'
 const Show = (props) => {
   const { id } = useParams()
   const navigate = useNavigate()
-  const people = props.people
+  const dishes = props.dishes
   
-  const person = people ? people.find((p) => p._id === id ) : null
+  const dish = dishes ? dishes.find((p) => p._id === id ) : null
 
-  const [ editForm, setEditForm ] = useState(person)
+  const [ editForm, setEditForm ] = useState(dish)
 
   const [ isEditing, setIsEditing ] = useState(false)
 
   useEffect( () => {
-    if (person) {
-        setEditForm(person)
+    if (dish) {
+        setEditForm(dish)
     }
-  }, [person])
+  }, [dish])
 
   // handling form data change
   const handleChange = (e) => {
@@ -30,7 +30,7 @@ const Show = (props) => {
   // handling submit event for edit form
   const handleUpdate = (e) => {
     e.preventDefault()
-    props.updatePeople(editForm, person._id)
+    props.updateDishes(editForm, dish._id)
   }
 
   // handle edit will toggle the edit form 
@@ -39,19 +39,21 @@ const Show = (props) => {
   }
 
   const handleDelete = () => {
-    props.deletePeople(person._id)
+    props.deleteDishes(dish._id)
     navigate('/')
   }
 
   const loaded = () => {
     return (
       <>
-        <h1>{person.name}</h1>
-        <h2>{person.title}</h2>
+        <h1>{dish.name}</h1>
+        <h2>{dish.title}</h2>
+        <h3>{dish.rating}/5</h3>
+        <h4>{dish.orderAgain}</h4>
         <img 
           className="avatar-image" 
-          src={person.image} 
-          alt={person.name} 
+          src={dish.image} 
+          alt={dish.name} 
         />
         <button onClick={handleEdit}>{ isEditing ? 'Cancel Edit' : 'Edit' }</button>
         <button onClick={handleDelete}>Delete</button>
@@ -63,8 +65,8 @@ const Show = (props) => {
   };
 
   return (
-    <div className="person">
-      { person ? loaded() : loading() }
+    <div className="dish">
+      { dish ? loaded() : loading() }
 
 
       { isEditing && 
@@ -90,7 +92,24 @@ const Show = (props) => {
           placeholder="title"
           onChange={handleChange}
         />
-        <input type="submit" value="Update Person" />
+        <input
+            type="number"
+            value={editForm.rating}
+            name="rating"
+            placeholder="rating"
+            onChange={handleChange}
+          />
+
+          <label>
+            <input
+              type="checkbox"
+              checked={editForm.orderAgain}
+              name="orderAgain"
+              onChange={handleChange}
+            />
+            Order Again
+          </label>
+        <input type="submit" value="Update Dish" />
       </form>
         }
     </div>

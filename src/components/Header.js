@@ -5,7 +5,10 @@ const Header = (props) => {
   return (
     <nav className="nav">
         <Link to="/">
-         <div>People App </div>
+         <div>Dishes </div>
+        </Link>
+        <Link to="/create">
+         <div>Create Dish </div>
         </Link>
     </nav>
   )

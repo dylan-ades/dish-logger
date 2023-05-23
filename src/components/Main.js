@@ -3,66 +3,68 @@ import { Routes, Route } from "react-router-dom"
 
 import Index from '../pages/Index'
 import Show from '../pages/Show'
+import Create from '../pages/Create'
 
 const Main = (props) => {
-    const [ people, setPeople ] = useState(null)
+    const [ dishes, setDishes ] = useState(null)
 
-    // const URL = "http://localhost:4000/people/"
-    const URL = "https://person-app-backend-vbps.onrender.com/people/"
+    const URL = "http://localhost:4000/dishes/"
+    // const URL = "https://dish-app-backend-vbps.onrender.com/dishes/"
 
-    const getPeople = async () => {
+    const getDishes = async () => {
         const response = await fetch(URL)
         const data = await response.json()
-        setPeople(data)
+        setDishes(data)
     }
 
-   const createPeople = async (person) => {
+   const createDishes = async (dish) => {
         await fetch(URL, {
             method: "POST",
             headers: {
                 "Content-Type": "Application/json"
             },
-            body: JSON.stringify(person)
+            body: JSON.stringify(dish)
         })
-        getPeople()
+        getDishes()
     }
 
-   const updatePeople = async (person, id) => {
+   const updateDishes = async (dish, id) => {
         await fetch(URL + id, {
             method: "PUT",
             headers: {
                 "Content-Type": "Application/json"
             },
-            body: JSON.stringify(person)
+            body: JSON.stringify(dish)
         })
-        getPeople()
+        getDishes()
     }
     
-    const deletePeople = async id => {
-      // make delete request to create people
+    const deleteDishes = async id => {
+      // make delete request to create dishes
       await fetch(URL + id, {
         method: "DELETE",
       })
-      // update list of people
-      getPeople();
+      // update list of dishes
+      getDishes();
     }
 
 
     useEffect(() => {
-        getPeople();
+        getDishes();
       }, []);
 
   return (
     <main>
     <Routes>
-        <Route exact path="/" element={<Index people={people} createPeople={createPeople}/>} />
+        <Route exact path="/" element={<Index dishes={dishes} createDishes={createDishes}/>} />
+        <Route path="/create" element={<Create dishes={dishes} createDishes={createDishes}/>} />
         <Route
-          path="/people/:id"
+          path="/dishes/:id"
           element = {
           <Show 
-            people={people}
-            updatePeople={updatePeople}
-            deletePeople={deletePeople}
+            dishes={dishes}
+            updateDishes={updateDishes}
+            deleteDishes={deleteDishes}
           /> }
         />
     </Routes>
