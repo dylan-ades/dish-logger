@@ -59,7 +59,7 @@ const Show = (props) => {
           className="avatar-image" 
           src={dish.image} 
           alt={dish.name} 
-          style={{ maxWidth: "50%" }} // Add this style to limit image size
+          style={{ margin: "2vh auto", display: "block", maxWidth: "50vh" }}
         />
         <button onClick={handleEdit}>{ isEditing ? 'Cancel Edit' : 'Edit' }</button>
         <button onClick={handleDelete}>Delete</button>

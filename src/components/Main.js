@@ -5,6 +5,7 @@ import Index from '../pages/Index'
 import Show from '../pages/Show'
 import Create from '../pages/Create'
 import About from '../pages/About'
+import Restaurants from '../pages/Restaurants'
 
 import '../Create.css';
 
@@ -61,6 +62,7 @@ const Main = (props) => {
     <Routes>
         <Route exact path="/" element={<Index dishes={dishes} createDishes={createDishes}/>} />
         <Route path="/about" element={<About />} />
+        <Route path="/restaurants" element={<Restaurants  dishes={dishes} createDishes={createDishes}/>} />
         <Route path="/create" element={<Create dishes={dishes} createDishes={createDishes}/>} />
         <Route
           path="/dishes/:id"

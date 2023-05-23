@@ -25,6 +25,7 @@ $backgroundcolor: tan;
 
 nav {
   @include white-text-black-bg;
+  background-image: url('https://media.istockphoto.com/id/537284406/photo/brown-leather.jpg?s=612x612&w=0&k=20&c=JTfy4bN8XZbhf59KsU8K5BU4sUloPk0oXqqKnJkKJIY=');
   display: flex;
   justify-content: flex-start;
   font-family: "Arial", sans-serif;
@@ -118,6 +119,8 @@ button#delete {
   font-size: 16px;
   color: #777;
   margin-top: 10px;
+  margin-left: 100px;
+  max-width: 300px;
 }
 
 .about-get-started-btn {
@@ -130,6 +133,7 @@ button#delete {
   margin-top: 50px;
   cursor: pointer;
 }
+
 
 .about-get-started-btn:hover {
   background-color: #F57C00;
