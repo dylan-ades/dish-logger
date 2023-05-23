@@ -1,0 +1,9 @@
+h1 
+    {
+        margin: 0;
+        font-family: cursive, 'Courier New', Courier, monospace;
+        color: red; 
+        -webkit-text-stroke: 0.005px white; 
+        text-stroke: 0.005px white;
+        margin-left: 15vh;
+      }

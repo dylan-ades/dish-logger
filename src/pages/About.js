@@ -5,7 +5,7 @@ const About = (props) => {
   return (
     <div className="about-container">
       <h1 className="about-title">Discover and Relish</h1>
-      <p className="about-description">Track your culinary journey, savor every bite.</p>
+      <p className="about-description">Track your culinary journey, savor every bite with Dish Logger.</p>
       <div className="about-features">
         <div className="about-feature">
           <i className="fas fa-utensils"></i>
@@ -24,7 +24,7 @@ const About = (props) => {
         </div>
       </div>
       <button className="about-get-started-btn">
-        <Link to="/create" style={{ textDecoration: 'none' }}>Get Started</Link>
+        <Link to="/create" style={{ textDecoration: 'none' }}>Start Logging</Link>
         </button>
     </div>
   );
