@@ -15,6 +15,10 @@ $backgroundcolor: tan;
   background-color: $contrastcolor;
 }
 
+@mixin black-test-white-bg {
+  color: $maincolor;
+  background-color: $contrastcolor;
+}
 // --------------------------
 // Header
 // --------------------------
@@ -39,6 +43,96 @@ nav {
       text-transform: uppercase;
     }
   }
+}
+
+// --------------------------
+// Form
+// --------------------------
+
+section,
+div {
+  form {
+    input {
+      @include white-text-black-bg;
+      padding: 10px;
+      font-size: 1.1em;
+      margin: 10px;
+
+      &[type="submit"]:hover {
+        @include black-test-white-bg;
+      }
+    }
+  }
+}
+
+// --------------------------
+// button
+// --------------------------
+
+button#delete {
+  @include white-text-black-bg;
+  display: block;
+  margin: auto;
+  font-size: 1.3em;
+  padding: 10px;
+}
+
+//
+//About
+//
+.about-container {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.about-title {
+  font-size: 36px;
+  color: #333;
+}
+
+.about-description {
+  font-size: 18px;
+  color: #777;
+  margin-top: 20px;
+}
+
+.about-features {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 50px;
+}
+
+.about-feature {
+  flex: 0 0 33.33%;
+  padding: 20px;
+}
+
+.about-feature-title {
+  font-size: 24px;
+  color: #333;
+  margin-top: 20px;
+}
+
+.about-feature-description {
+  font-size: 16px;
+  color: #777;
+  margin-top: 10px;
+}
+
+.about-get-started-btn {
+  background-color: #FF9800;
+  color: #FFF;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin-top: 50px;
+  cursor: pointer;
+}
+
+.about-get-started-btn:hover {
+  background-color: #F57C00;
 }
 
 // --------------------------
@@ -86,3 +180,6 @@ button {
     box-shadow: 0 0 5px rgba($maincolor, 0.5);
   }
 }
+
+//New
+

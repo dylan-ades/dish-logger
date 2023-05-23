@@ -4,6 +4,9 @@ import { Routes, Route } from "react-router-dom"
 import Index from '../pages/Index'
 import Show from '../pages/Show'
 import Create from '../pages/Create'
+import About from '../pages/About'
+
+import '../Create.css';
 
 const Main = (props) => {
     const [ dishes, setDishes ] = useState(null)
@@ -57,6 +60,7 @@ const Main = (props) => {
     <main>
     <Routes>
         <Route exact path="/" element={<Index dishes={dishes} createDishes={createDishes}/>} />
+        <Route path="/about" element={<About />} />
         <Route path="/create" element={<Create dishes={dishes} createDishes={createDishes}/>} />
         <Route
           path="/dishes/:id"

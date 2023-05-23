@@ -8,11 +8,17 @@ const Index = (props) => {
         <Link to={`/dishes/${dish._id}`}>
           <h1>{dish.name}</h1>
         </Link>
-        <img src={dish.image} alt={dish.name} />
-        <h3>{dish.title}</h3>
+        <h3>{dish.restaurant}</h3>
+        <img
+          src={dish.image}
+          alt={dish.name}
+          style={{ maxWidth: "30%" }} // Limit image size to 50%
+        />
+        
       </div>
     ));
   };
+  
 
   const loading = () => {
     return <h1>Loading...</h1>;

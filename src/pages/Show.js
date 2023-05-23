@@ -44,22 +44,30 @@ const Show = (props) => {
   }
 
   const loaded = () => {
+    const starRating = Math.min(dish.rating, 5); // Ensure the rating is capped at 5
+    const stars = "★".repeat(starRating) + "☆".repeat(5 - starRating); // Generate stars and empty stars
+    const orderAgainText = dish.orderAgain ? "Would Order Again!" : "Would Not Order Again!";
+    const orderAgainSymbol = dish.orderAgain ? "✓" : "✕";
+  
     return (
       <>
         <h1>{dish.name}</h1>
-        <h2>{dish.title}</h2>
-        <h3>{dish.rating}/5</h3>
-        <h4>{dish.orderAgain}</h4>
+        <h2>{dish.restaurant}</h2>
+        <h3>{stars}</h3>
+        <h5>{orderAgainText} {orderAgainSymbol}</h5>
         <img 
           className="avatar-image" 
           src={dish.image} 
           alt={dish.name} 
+          style={{ maxWidth: "50%" }} // Add this style to limit image size
         />
         <button onClick={handleEdit}>{ isEditing ? 'Cancel Edit' : 'Edit' }</button>
         <button onClick={handleDelete}>Delete</button>
       </>
     );
   };
+  
+  
   const loading = () => {
     return <h1>Loading ...</h1>;
   };
@@ -87,9 +95,9 @@ const Show = (props) => {
         />
         <input
           type="text"
-          value={editForm.title}
-          name="title"
-          placeholder="title"
+          value={editForm.restaurant}
+          name="restaurant"
+          placeholder="restaurant"
           onChange={handleChange}
         />
         <input
