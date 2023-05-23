@@ -12,8 +12,9 @@ import '../Create.css';
 const Main = (props) => {
     const [ dishes, setDishes ] = useState(null)
 
-    const URL = "http://localhost:4000/dishes/"
+    // const URL = "http://localhost:4000/dishes/"
     // const URL = "https://dish-app-backend-vbps.onrender.com/dishes/"
+    const URL = "https://person-app-backend-vbps.onrender.com/dishes/"
 
     const getDishes = async () => {
         const response = await fetch(URL)
